@@ -10,13 +10,22 @@ public class MessageSender {
     private MessageService smsService;
 
     //@Autowired: not required after spring 4.3 onwards if only one constructor in a class
-    public MessageSender(@Qualifier("emailService") MessageService messageService){
-        this.messageService = messageService;
-    }
+//    public MessageSender(@Qualifier("emailService") MessageService messageService){
+//        this.messageService = messageService;
+//    }
+//
+//    @Autowired
+//    public MessageSender(@Qualifier("emailService") MessageService messageService,@Qualifier("smsService") MessageService smsService){
+//        this.messageService = messageService;
+//        this.smsService = smsService;
+//    }
 
     @Autowired
-    public MessageSender(@Qualifier("emailService") MessageService messageService,@Qualifier("smsService") MessageService smsService){
+    public void setMessageService(@Qualifier("emailService")MessageService messageService) {
         this.messageService = messageService;
+    }
+    @Autowired
+    public void setSmsService(@Qualifier("smsService") MessageService smsService) {
         this.smsService = smsService;
     }
 
