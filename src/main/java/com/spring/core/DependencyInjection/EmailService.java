@@ -2,7 +2,7 @@ package com.spring.core.DependencyInjection;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("emailService")
 public class EmailService implements MessageService{
     @Override
     public void sendMessage(String message){
